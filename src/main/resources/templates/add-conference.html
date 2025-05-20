@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Conference</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Add a New Conference</h1>
+    <form action="#" th:action="@{/addconference}" th:object="${conference}" method="post" class="form-container">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" th:field="*{name}" id="name" class="form-control" />
+            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+        <div class="form-group">
+            <label for="dateTime">Date & Time:</label>
+            <input type="datetime-local" th:field="*{dateTime}" id="dateTime" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" th:field="*{location}" id="location" class="form-control" />
+            <span class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
+        </div>
+        <div class="form-group">
+            <label for="speaker">Speaker:</label>
+            <input type="text" th:field="*{speaker}" id="speaker" class="form-control" />
+            <span class="error" th:if="${#fields.hasErrors('speaker')}" th:errors="*{speaker}"></span>
+        </div>
+		<div class="form-group">
+		    <button type="submit" class="btn btn-space">Submit</button>
+		    <a href="/index" class="btn btn-space">Cancel</a>
+		</div>
+
+
+    </form>
+</body>
+</html>

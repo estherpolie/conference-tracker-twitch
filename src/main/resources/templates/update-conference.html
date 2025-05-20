@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Conference</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>Update Conference</h1>
+    <form th:action="@{'/update/' + ${conference.id}}" th:object="${conference}" method="post">
+        <input type="hidden" name="_method" value="put"/>
+        <div>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" />
+        </div>
+        <div>
+            <label>Date & Time:</label>
+            <input type="datetime-local" th:field="*{dateTime}" />
+        </div>
+        <div>
+            <label>Location:</label>
+            <input type="text" th:field="*{location}" />
+        </div>
+        <div>
+            <label>Speaker:</label>
+            <input type="text" th:field="*{speaker}" />
+        </div>
+        <div>
+            <label>Status:</label>
+            <input type="checkbox" th:field="*{status}" />
+        </div>
+        <div>
+            <button type="submit" class="btn">Update</button>
+            <a href="/index" class="btn">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>

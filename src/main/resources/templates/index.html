@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>All Conferences</h1>
+    <a href="/addconference" class="btn">Add Conference</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date & Time</th>
+                <th>Location</th>
+                <th>Speaker</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="conference : ${conferences}">
+            <td th:text="${conference.name}"></td>
+            <td th:text="${conference.dateTime}"></td>
+            <td th:text="${conference.location}"></td>
+            <td th:text="${conference.speaker}"></td>
+            <td th:text="${conference.status ? 'Active' : 'Inactive'}"></td>
+            <td>
+                <a th:href="@{'/update/' + ${conference.id}}" class="btn">Edit</a>
+                <form th:action="@{'/delete/' + ${conference.id}}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="btn danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
