@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  conference-tracker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: conference-tracker:latest
+    container_name: conference-tracker
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTS=${JAVA_OPTS:-}
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-default}
+    restart: unless-stopped
