@@ -25,3 +25,11 @@ This is a simple web application built with **Spring Boot** and **Thymeleaf** th
    ```bash
    git clone https://github.com/estherpolie/conference-tracker-twitch.git
    cd conference-tracker-twitch
+   Run the application:
+2.run the app
+./mvnw spring-boot:run
+
+3.Open your browser and go to:
+
+http://localhost:8080/index
+
